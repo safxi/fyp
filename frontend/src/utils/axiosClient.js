@@ -1,8 +1,10 @@
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "/api";
+
 export const createAxiosClient = (accessToken) => {
   const instance = axios.create({
-    baseURL: "/api",
+    baseURL: API_BASE_URL,
   });
 
   instance.interceptors.request.use((config) => {
